@@ -1,5 +1,11 @@
+import CreateJobForm from "@/components/CreateJobForm";
+
 const AddJobPage = () => {
-  return <div>page</div>;
+  return (
+    <div>
+      <CreateJobForm />
+    </div>
+  );
 };
 
 export default AddJobPage;
