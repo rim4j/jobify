@@ -1,11 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Camera } from "lucide-react";
 import Image from "next/image";
 import Logo from "./../assets/logo.svg";
 import LandingImg from "./../assets/main.svg";
 import Link from "next/link";
 
-// grid lg:grid-cols-[1fr,400px]
 export default function Home() {
   return (
     <main>
@@ -19,7 +17,7 @@ export default function Home() {
         <div>
           <h1 className='capitalize text-4xl md:text-7xl font-bold'>
             job
-            <span className='text-primary'>Tracking</span> app
+            <span className='text-primary'> Tracking</span> app
           </h1>
           <p className='leading-loose max-w-md mt-4 '>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
