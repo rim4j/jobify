@@ -22,7 +22,7 @@ const DeleteJobBtn = ({ id }: { id: string }) => {
 
   return (
     <Button
-      className='cursor-pointer'
+      className='cursor-pointer '
       size='sm'
       disabled={isPending}
       onClick={() => {
