@@ -10,6 +10,8 @@ import { auth } from "@clerk/nextjs/server";
 
 export const authenticatedAndRedirect = async (): Promise<string> => {
   const { userId } = await auth();
+
+  console.log("user id", userId);
   if (!userId) {
     redirect("/");
   }
