@@ -62,6 +62,7 @@ export async function getAllJobsAction({
     if (search) {
       whereClause = {
         ...whereClause,
+
         OR: [
           { position: { contains: search } },
           { company: { contains: search } },
@@ -75,14 +76,25 @@ export async function getAllJobsAction({
         status: jobStatus,
       };
     }
+
+    const skip = (page - 1) * limit;
+
     const jobs: JobType[] = await prisma.job.findMany({
       where: whereClause,
+      skip,
+      take: limit,
       orderBy: {
         createdAt: "desc",
       },
     });
 
-    return { jobs, count: 0, page: 1, totalPages: 0 };
+    const count: number = await prisma.job.count({
+      where: whereClause,
+    });
+
+    const totalPages = Math.ceil(count / limit);
+
+    return { jobs, count, page, totalPages };
   } catch (error) {
     return { jobs: [], count: 0, page: 1, totalPages: 0 };
   }
